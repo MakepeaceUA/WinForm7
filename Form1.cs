@@ -1,4 +1,4 @@
-namespace WinFormsApp14
+namespace WinFormsApp15
 {
     public partial class Form1 : Form
     {
@@ -6,41 +6,69 @@ namespace WinFormsApp14
         {
             InitializeComponent();
         }
-
-        private void UpdateToolStripBTN_Click(object sender, EventArgs e)
+        private void addingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Данные обновлены", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int num1, num2;
+            if (int.TryParse(FirstNumTextBox.Text, out num1) && int.TryParse(SecondNumTextBox.Text, out num2))
+            {
+                MessageBox.Show($"Сумма: {num1 + num2}", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Поля заполнены некорректно.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void subtractionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int num1, num2;
+            if (int.TryParse(FirstNumTextBox.Text, out num1) && int.TryParse(SecondNumTextBox.Text, out num2))
+            {
+                MessageBox.Show($"Разница: {num1 - num2}", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Поля заполнены некорректно.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FirstNumTextBox.Clear();
+            SecondNumTextBox.Clear();
+        }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
-        private void ColorToolStripComboBox_Click(object sender, EventArgs e)
+        private void AddingToolStripBTN_Click(object sender, EventArgs e)
         {
-            var comboBox = sender as ToolStripComboBox;
-
-            if (comboBox != null && comboBox.SelectedItem != null)
+            int num1, num2;
+            if (int.TryParse(FirstNumTextBox.Text, out num1) && int.TryParse(SecondNumTextBox.Text, out num2))
             {
-                switch (comboBox.SelectedItem)
-                {
-                    case "Красный":
-                        BackColor = Color.Red;
-                        break;
-                    case "Зелёный":
-                        BackColor = Color.Green;
-                        break;
-                    case "Синий":
-                        BackColor = Color.Blue;
-                        break;
-                }
+                MessageBox.Show($"Сумма: {num1 + num2}", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Поля заполнены некорректно.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ToolStripTextBox_Click(object sender, EventArgs e)
+        private void SubtractionToolStripBTN_Click(object sender, EventArgs e)
         {
-            var textBox = sender as ToolStripTextBox;
-
-            if (textBox != null && !string.IsNullOrEmpty(textBox.Text))
+            int num1, num2;
+            if (int.TryParse(FirstNumTextBox.Text, out num1) && int.TryParse(SecondNumTextBox.Text, out num2))
             {
-                MessageBox.Show(textBox.Text, "Введённый текст", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Разница: {num1 - num2}", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                MessageBox.Show("Поля заполнены некорректно.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ClearToolStripButton_Click(object sender, EventArgs e)
+        {
+            FirstNumTextBox.Clear();
+            SecondNumTextBox.Clear();
         }
     }
 }
